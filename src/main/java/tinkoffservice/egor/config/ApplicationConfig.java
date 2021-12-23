@@ -1,5 +1,6 @@
 package tinkoffservice.egor.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import ru.tinkoff.invest.openapi.okhttp.OkHttpOpenApi;
 
 @Configuration
 @EnableConfigurationProperties(ApiConfig.class)
+@Slf4j
 public class ApplicationConfig {
     private final ApiConfig apiConfig;
 
@@ -19,7 +21,7 @@ public class ApplicationConfig {
 
     @Bean
     public OpenApi api() {
-        String ssoToken = System.getenv("ssoToken");
+        String ssoToken = apiConfig.getSsoToken();
         return new OkHttpOpenApi(ssoToken,apiConfig.getIsSendBoxMod());
     }
 }

@@ -7,4 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "api")
 public class ApiConfig {
     private Boolean isSendBoxMod;
+
+    private String ssoToken;
 }
