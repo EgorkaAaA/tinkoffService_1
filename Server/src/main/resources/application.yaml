@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: SERVER
+server:
+  port: 8761
+eureka:
+  server:
+    hostname: localhost
